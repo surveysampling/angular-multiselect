@@ -234,6 +234,8 @@ angular.module('am.multiselect', [])
         };
 
         scope.select = function (item) {
+            if (item.model.disabled) return;
+            
             if (isMultiple === false) {
                 selectSingle(item);
                 scope.toggleSelect();
