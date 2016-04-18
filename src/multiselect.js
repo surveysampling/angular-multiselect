@@ -221,14 +221,18 @@ angular.module('am.multiselect', [])
         scope.checkAll = function () {
             if (!isMultiple) return;
             angular.forEach(scope.items, function (item) {
-                item.checked = true;
+                if (!item.model.disabled){
+                    item.checked = true;
+                }
             });
             setModelValue(true);
         };
 
         scope.uncheckAll = function () {
             angular.forEach(scope.items, function (item) {
-                item.checked = false;
+                if (!item.model.disabled){
+                    item.checked = false;
+                }
             });
             setModelValue(true);
         };
